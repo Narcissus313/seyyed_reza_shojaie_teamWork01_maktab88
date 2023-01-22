@@ -23,19 +23,22 @@ $(() => {
 		}
 	}
 
-	$.ajax({
-		url: "https://restcountries.com/v3.1/all",
-		type: "GET",
-		success: function (response) {
-			console.log(response[0]);
-			countryDatas = response;
-		},
-		error: function (err) {
-			console.log(err);
-		},
-		async: false,
-	});
+	function getCountriesData() {
+		$.ajax({
+			url: "https://restcountries.com/v3.1/all",
+			type: "GET",
+			success: function (response) {
+				console.log(response[0]);
+				countryDatas = response;
+			},
+			error: function (err) {
+				console.log(err);
+			},
+			async: false,
+		});
+	}
 
+	getCountriesData();
 	fillCountriesNames();
 	setFormSelectMenu();
 });

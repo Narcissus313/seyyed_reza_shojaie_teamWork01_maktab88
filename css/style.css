@@ -1,38 +1,28 @@
 .container {
-    width: 400px;
-    margin: auto;
-    background-color: gainsboro;
-    padding: 10px;
-    margin-top: 100px;
-}
-
-@font-face {
-    font-family: roboto-light;
-    src: url('../fonts/Roboto-light.ttf');
-}
-
-@font-face {
-    font-family: roboto-medium;
-    src: url('../fonts/Roboto-Medium.ttf');
+  width: 400px;
+  margin: auto;
+  background-color: gainsboro;
+  padding: 10px;
+  margin-top: 100px;
 }
 
 * {
-    font-family: 'roboto';
+  font-family: "Roboto", sans-serif;
 }
 
 .middle {
-    height: 40vh;
+  height: 40vh;
 }
 
 .footer {
-    height: 42vh;
+  height: 42vh;
 }
 
-h1,
+/* h1,
 h2,
 h3,
 h4,
 h5,
 h6 {
-    font-family: roboto-medium;
-}
+  font-family: roboto-medium;
+} */

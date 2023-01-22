@@ -1,25 +1,12 @@
 $(() => {
   let countryDatas = [];
-  let countriesNames = [];
 
-  function fillCountriesNames() {
-    for (const country of countryDatas) {
-      countriesNames.push(country["name"]["common"]);
-    }
-    countriesNames.sort((a, b) => a.localeCompare(b));
-  }
-
+  $("#formSelectCountries").on("change", function () {});
   function setFormSelectMenu() {
-    for (const country of countriesNames) {
-      if (country !== "Iran") {
-        $("#formSelectCountries").append(
-          `<option value="${country}">${country}</option>`
-        );
-      } else {
-        $("#formSelectCountries").append(
-          `<option class="text-danger fs-5 fst-italic" value="${country}"><a class="text-Success">${country}</a></option>`
-        );
-      }
+    for (const country of countryDatas) {
+      $("#formSelectCountries").append(
+        `<option value="${country.ccn3}">${country.name.common}</option>`
+      );
     }
   }
 
@@ -39,6 +26,5 @@ $(() => {
   }
 
   getCountriesData();
-  fillCountriesNames();
   setFormSelectMenu();
 });

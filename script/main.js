@@ -1,5 +1,5 @@
 $(() => {
-  let data = [];
+  let countryDatas = [];
   let countriesNames = [];
 
   function fillCountriesNames() {

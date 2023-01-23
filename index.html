@@ -59,14 +59,18 @@
       </div>
       <div class="footer row px-1">
         <div class="col-sm-12 col-md-4 px-2 mt-2">
-          <div class="name bg-light text-center text-white h-100">
-            <h3 class="text-warning bg-secondary py-3">
+          <div class="name bg-light text-center h-100">
+            <h3 class="text-warning bg-secondary py-1">
               Capital Weather Report
             </h3>
+            <div id="weather"></div>
           </div>
         </div>
         <div class="col-sm-12 col-md-8 px-0 mt-2 pe-2">
-          <div class="code bg-dark text-center text-white h-100">s</div>
+          <div
+            class="code bg-dark text-center text-white h-100"
+            id="map-wrapper"
+          ></div>
         </div>
       </div>
     </div>
@@ -81,5 +85,7 @@
     integrity="sha384-mQ93GR66B00ZXjt0YO5KlohRA5SY2XofN4zfuZxLkoj1gXtW8ANNCe9d5Y3eG5eD"
     crossorigin="anonymous"
   ></script>
+  <script src="./script/renderMap.js"></script>
+  <script src="./script/renderWeatherDesc.js"></script>
   <script src="./script/main.js"></script>
 </html>

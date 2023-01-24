@@ -5,12 +5,27 @@ $(() => {
     let selectedCountry = countryDatas.find(
       (country) => country.ccn3 === this.value
     );
-    $.get(
-      `https://api.openweathermap.org/data/2.5/forecast?lat=${selectedCountry.capitalInfo.latlng[0]}&lon=${selectedCountry.capitalInfo.latlng[1]}&appid=8b2a11caa905079d877bc53c2c2c61b7`
-    ).done((res) => {
-      $("#weather").html(renderWeatherDesc(res.list[0]));
-    });
-    $("#map-wrapper").html(renderMap(selectedCountry.capital[0]));
+    console.log(selectedCountry);
+    if (Object.keys(selectedCountry.capitalInfo).length) {
+      $.get(
+        `https://api.openweathermap.org/data/2.5/forecast?lat=${selectedCountry.capitalInfo.latlng[0]}&lon=${selectedCountry.capitalInfo.latlng[1]}&appid=8b2a11caa905079d877bc53c2c2c61b7`
+      )
+        .done((res) => {
+          $("#weather").html(renderWeatherDesc(res.list[0]));
+        })
+        .fail(() => {
+          alert("Please Check you internet connection!");
+        });
+      $("#map-wrapper").html(
+        renderMap(
+          selectedCountry.capitalInfo.latlng[0],
+          selectedCountry.capitalInfo.latlng[1]
+        )
+      );
+    } else {
+      $("#weather").html(renderWeatherDesc());
+      $("#map-wrapper").html(renderMap(selectedCountry.name.official));
+    }
   });
   function setFormSelectMenu() {
     for (const country of countryDatas) {
@@ -29,6 +44,7 @@ $(() => {
       },
       error: function (err) {
         console.log(err);
+        alert("Please Check you internet connection!");
       },
       async: false,
     });

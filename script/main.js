@@ -19,8 +19,7 @@ $(() => {
 				countryDatas = response;
 			},
 			error: function (err) {
-				console.log("error:");
-				console.log(err);
+				console.log("error: ",err);
 			},
 			async: false,
 		});

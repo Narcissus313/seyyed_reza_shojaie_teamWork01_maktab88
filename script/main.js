@@ -33,20 +33,36 @@ $(() => {
 			);
 		}
 	}
-	
 
 	function getTargetCountryDatas() {
 		name = targetCountry.name["official"];
-		languages = Object.values(targetCountry.languages).join(", ");
-		let firstLanguage = Object.keys(targetCountry.languages)[0];
-		nativeName = targetCountry.name.nativeName[firstLanguage]["common"];
-		capital = targetCountry.capital[0];
-		region = targetCountry.region;
-		population = targetCountry.population;
-		timeZone = targetCountry.timezones[0];
-		callingCode =
-			targetCountry.idd.root.replace("+", "") +
-			targetCountry.idd.suffixes[0];
+		if (targetCountry.languages) {
+			languages = Object.values(targetCountry.languages).join(", ");
+			let firstLanguage = Object.keys(targetCountry.languages)[0];
+			nativeName = targetCountry.name.nativeName[firstLanguage]["common"];
+		} else {
+			languages = "No Info";
+			nativeName = name;
+		}
+		if (targetCountry.capital) capital = targetCountry.capital;
+		else capital = "No Info";
+		// region = targetCountry.region;
+		if (targetCountry.region) region = targetCountry.region;
+		else region = "No Info";
+		// population = targetCountry.population;
+		if (targetCountry.population) population = targetCountry.population;
+		else population = "No Info";
+		if (targetCountry.timeZone) timeZone = targetCountry.timezones[0];
+		else timeZone = "No Info";
+		// timeZone = targetCountry.timezones[0];
+		if (targetCountry.idd.root)
+			callingCode =
+				targetCountry.idd.root.replace("+", "") +
+				targetCountry.idd.suffixes[0];
+		else callingCode = "No Info";
+		// callingCode =
+		// 	targetCountry.idd.root.replace("+", "") +
+		// 	targetCountry.idd.suffixes[0];
 		falgUrl = targetCountry.flags.png;
 	}
 
@@ -87,7 +103,7 @@ $(() => {
             </h3>
           </div>
         </div>
-        <div class="col-sm-12 col-md-8 mt-2 pb-2 pe-0">
+        <div class="col-sm-12 col-md-8 mt-2 pe-0">
           <div class="code bg-dark text-center text-white h-100"></div>
         </div>
       </div>

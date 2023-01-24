@@ -72,7 +72,9 @@ $(() => {
           <p class="lh-1 text-start ps-3 pe-0 fw-bold" style="color:yellow">Native Name: <span style="color:white">${nativeName}</span></p>
           <p class="lh-1 text-start ps-3 pe-0 fw-bold" style="color:yellow">Capital: <span style="color:white">${capital}</span></p>
           <p class="lh-1 text-start ps-3 pe-0 fw-bold" style="color:yellow">Region: <span style="color:white">${region}</span></p>
-          <p class="lh-1 text-start ps-3 pe-0 fw-bold" style="color:yellow">Population: <span style="color:white">${population}</span></p>
+          <p class="lh-1 text-start ps-3 pe-0 fw-bold" style="color:yellow">Population: <span style="color:white">${population.toLocaleString(
+				"en"
+			)}</span></p>
           <p class="lh-1 text-start ps-3 pe-0 fw-bold" style="color:yellow">Languages: <span style="color:white">${languages}</span></p>
           <p class="lh-1 text-start ps-3 pe-0 fw-bold" style="color:yellow">TimeZone: <span style="color:white">${timeZone}</span></p>
         </div>
@@ -84,7 +86,11 @@ $(() => {
             <h3 class="bg-dark text-center fw-bold w-100 py-3">Calling Code</h3>
           </div>
           <div class="bg-warning d-flex align-items-start justify-content-center">
-            <h1 class="text-dark fw-bold py-5">${callingCode}</h1>
+            <h1 class="text-dark fw-bold py-5">${
+				callingCode !== "No Info"
+					? callingCode
+					: '<span style="color:red;"></span>'
+			}</h1>
           </div>
         </div>
       </div>

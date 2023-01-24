@@ -52,7 +52,7 @@ $(() => {
 		// population = targetCountry.population;
 		if (targetCountry.population) population = targetCountry.population;
 		else population = "No Info";
-		if (targetCountry.timeZone) timeZone = targetCountry.timezones[0];
+		if (targetCountry.timezones) timeZone = targetCountry.timezones[0];
 		else timeZone = "No Info";
 		// timeZone = targetCountry.timezones[0];
 		if (targetCountry.idd.root)

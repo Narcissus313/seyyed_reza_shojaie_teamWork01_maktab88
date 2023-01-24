@@ -19,7 +19,7 @@ $(() => {
 				countryDatas = response;
 			},
 			error: function (err) {
-				console.log("error: ",err);
+				console.log("error: ", err);
 			},
 			async: false,
 		});
@@ -33,6 +33,15 @@ $(() => {
 		}
 	}
 
+	function tryGetData(key, index = null) {
+		try {
+			if (index === null) return targetCountry[key];
+			else return targetCountry[key][index];
+		} catch (error) {
+			return "No Info";
+		}
+	}
+
 	function getTargetCountryDatas() {
 		name = targetCountry.name["official"];
 		if (targetCountry.languages) {
@@ -43,14 +52,10 @@ $(() => {
 			languages = "No Info";
 			nativeName = name;
 		}
-		if (targetCountry.capital) capital = targetCountry.capital;
-		else capital = "No Info";
-		if (targetCountry.region) region = targetCountry.region;
-		else region = "No Info";
-		if (targetCountry.population) population = targetCountry.population;
-		else population = "No Info";
-		if (targetCountry.timezones) timeZone = targetCountry.timezones[0];
-		else timeZone = "No Info";
+		capital = tryGetData("capital");
+		region = tryGetData("region");
+		population = tryGetData("population");
+		timeZone = tryGetData("timezones", 0);
 		if (targetCountry.idd.root)
 			callingCode =
 				targetCountry.idd.root.replace("+", "") +

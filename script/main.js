@@ -1,6 +1,5 @@
 $(() => {
 	let countryDatas = [];
-	let countryDatas2 = [];
 	let targetCountry;
 	let name;
 	let nativeName;
@@ -14,10 +13,10 @@ $(() => {
 
 	function getCountriesData() {
 		$.ajax({
-			url: "https://api.countrylayer.com/v2/all?access_key=863ebb94a829c966c70863f4769aa6c8",
+			url: "https://restcountries.com/v3.1/all",
 			type: "GET",
 			success: function (response) {
-				countryDatas2 = response;
+				countryDatas = response;
 			},
 			error: function (err) {
 				console.log("error:");
@@ -34,6 +33,7 @@ $(() => {
 			);
 		}
 	}
+	
 
 	function getTargetCountryDatas() {
 		name = targetCountry.name["official"];
@@ -51,7 +51,8 @@ $(() => {
 	}
 
 	function renderPage() {
-		let pageContent = `<div class="col-sm-12 col-md-4 mt-2">
+		let pageContent = `
+		<div class="col-sm-12 col-md-4 mt-2">
         <div class="bg-secondary text-center text-white pb-1">
           <h4 class="py-2 text-white text-start fw-bold px-3">${name}</h4>
           <p class="lh-1 text-start ps-3 pe-0 fw-bold" style="color:yellow">Native Name: <span style="color:white">${nativeName}</span></p>
@@ -108,18 +109,4 @@ $(() => {
 		getTargetCountryDatas();
 		renderPage();
 	});
-
-	function getCountriesData2() {
-		var settings = {
-			url: "https://api.countrylayer.com/v2/all?access_key=((1fc17f7ca99c35e902cbaf51a9675b53))",
-			method: "GET",
-			timeout: 0,
-		};
-
-		$.ajax(settings).done(function (response) {
-			console.log(response);
-		});
-	}
-	getCountriesData2();
-	// console.log(getCountriesData2);
 });

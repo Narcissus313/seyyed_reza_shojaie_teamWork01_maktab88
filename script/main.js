@@ -46,23 +46,17 @@ $(() => {
 		}
 		if (targetCountry.capital) capital = targetCountry.capital;
 		else capital = "No Info";
-		// region = targetCountry.region;
 		if (targetCountry.region) region = targetCountry.region;
 		else region = "No Info";
-		// population = targetCountry.population;
 		if (targetCountry.population) population = targetCountry.population;
 		else population = "No Info";
 		if (targetCountry.timezones) timeZone = targetCountry.timezones[0];
 		else timeZone = "No Info";
-		// timeZone = targetCountry.timezones[0];
 		if (targetCountry.idd.root)
 			callingCode =
 				targetCountry.idd.root.replace("+", "") +
 				targetCountry.idd.suffixes[0];
 		else callingCode = "No Info";
-		// callingCode =
-		// 	targetCountry.idd.root.replace("+", "") +
-		// 	targetCountry.idd.suffixes[0];
 		falgUrl = targetCountry.flags.png;
 	}
 

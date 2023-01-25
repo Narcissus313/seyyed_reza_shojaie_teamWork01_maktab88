@@ -17,10 +17,10 @@ function getTargetCountryDatas(targetCountry) {
     languages = "No Info";
     nativeName = officialName;
   }
-  capital = tryGetData("capital");
-  region = tryGetData("region");
-  population = tryGetData("population");
-  timeZone = tryGetData("timezones", 0);
+  capital = tryGetData(targetCountry, "capital");
+  region = tryGetData(targetCountry, "region");
+  population = tryGetData(targetCountry, "population");
+  timeZone = tryGetData(targetCountry, "timezones", 0);
   if (targetCountry.idd.root)
     callingCode =
       targetCountry.idd.root.replace("+", "") + targetCountry.idd.suffixes[0];

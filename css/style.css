@@ -1,5 +1,5 @@
 body {
-  overflow: hidden;
+  overflow-x: hidden;
 }
 .weather-icon {
   border-radius: 67px;
@@ -12,10 +12,10 @@ body {
 * {
   font-family: "Roboto", sans-serif;
 }
-
+/* 
 .middle {
   height: 40vh;
-}
+} */
 
 .footer {
   height: 42vh;

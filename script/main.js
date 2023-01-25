@@ -1,14 +1,14 @@
 $(() => {
   let countryDatas = [];
-
   $("#formSelectCountries").on("change", function () {
-    let selectedCountry = countryDatas.find(
+    let targetCountry = countryDatas.find(
       (country) => country.ccn3 === this.value
     );
-    console.log(selectedCountry);
-    if (Object.keys(selectedCountry.capitalInfo).length) {
+    console.log(targetCountry);
+    $(".middle").html(renderPage(getTargetCountryDatas(targetCountry)));
+    if (Object.keys(targetCountry.capitalInfo).length) {
       $.get(
-        `https://api.openweathermap.org/data/2.5/forecast?lat=${selectedCountry.capitalInfo.latlng[0]}&lon=${selectedCountry.capitalInfo.latlng[1]}&appid=8b2a11caa905079d877bc53c2c2c61b7`
+        `https://api.openweathermap.org/data/2.5/forecast?lat=${targetCountry.capitalInfo.latlng[0]}&lon=${targetCountry.capitalInfo.latlng[1]}&appid=8b2a11caa905079d877bc53c2c2c61b7`
       )
         .done((res) => {
           $("#weather").html(renderWeatherDesc(res.list[0]));
@@ -18,13 +18,13 @@ $(() => {
         });
       $("#map-wrapper").html(
         renderMap(
-          selectedCountry.capitalInfo.latlng[0],
-          selectedCountry.capitalInfo.latlng[1]
+          targetCountry.capitalInfo.latlng[0],
+          targetCountry.capitalInfo.latlng[1]
         )
       );
     } else {
       $("#weather").html(renderWeatherDesc());
-      $("#map-wrapper").html(renderMap(selectedCountry.name.official));
+      $("#map-wrapper").html(renderMap(targetCountry.name.official));
     }
   });
   function setFormSelectMenu() {
@@ -49,6 +49,7 @@ $(() => {
       async: false,
     });
   }
+
   getCountriesData();
   countryDatas.sort((a, b) => a.name.common.localeCompare(b.name.common));
   setFormSelectMenu();

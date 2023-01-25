@@ -1,8 +1,20 @@
-function renderPage() {
-  let pageContent = `
+function renderPage(targetCountryInfoObj) {
+  console.log(targetCountryInfoObj);
+  const {
+    officialName,
+    nativeName,
+    capital,
+    region,
+    population,
+    languages,
+    timeZone,
+    callingCode,
+    falgUrl,
+  } = targetCountryInfoObj;
+  return `
 		<div class="col-sm-12 col-md-4 mt-2">
         <div class="bg-secondary text-center text-white pb-1">
-          <h4 class="py-2 text-white text-start fw-bold px-3">${name}</h4>
+          <h4 class="py-2 text-white text-start fw-bold px-3">${officialName}</h4>
           <p class="lh-1 text-start ps-3 pe-0 fw-bold" style="color:yellow">Native Name: <span style="color:white">${nativeName}</span></p>
           <p class="lh-1 text-start ps-3 pe-0 fw-bold" style="color:yellow">Capital: <span style="color:white">${capital}</span></p>
           <p class="lh-1 text-start ps-3 pe-0 fw-bold" style="color:yellow">Region: <span style="color:white">${region}</span></p>
@@ -33,20 +45,5 @@ function renderPage() {
           <img src=${falgUrl} alt="country flag">
         </div>
       </div>
-	  <div class="footer row gx-2 pe-0">
-        <div class="col-sm-12 col-md-4 mt-2">
-          <div class="name bg-light text-center text-white h-100">
-            <h3 class="bg-secondary py-3 fw-bold" style="color:yellow">
-              Capital Weather Report
-            </h3>
-          </div>
-        </div>
-        <div class="col-sm-12 col-md-8 mt-2 pe-0">
-          <div class="code bg-dark text-center text-white h-100"></div>
-        </div>
-      </div>
-    </div>
 	`;
-
-  $(".middle").html(pageContent);
 }

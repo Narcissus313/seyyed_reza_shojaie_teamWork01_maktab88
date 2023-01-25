@@ -13,7 +13,7 @@ function renderPage(targetCountryInfoObj) {
   } = targetCountryInfoObj;
   return `
 		<div class="col-sm-12 col-md-4 mt-2">
-        <div class="bg-secondary text-center text-white pb-1">
+        <div class="h-100 bg-secondary text-center text-white pb-1">
           <h4 class="py-2 text-white text-start fw-bold px-3">${officialName}</h4>
           <p class="lh-1 text-start ps-3 pe-0 fw-bold" style="color:yellow">Native Name: <span style="color:white">${nativeName}</span></p>
           <p class="lh-1 text-start ps-3 pe-0 fw-bold" style="color:yellow">Capital: <span style="color:white">${capital}</span></p>
@@ -32,7 +32,7 @@ function renderPage(targetCountryInfoObj) {
             <h3 class="bg-dark text-center fw-bold w-100 py-3">Calling Code</h3>
           </div>
           <div class="bg-warning d-flex align-items-start justify-content-center">
-            <h1 class="text-dark fw-bold py-5">${
+            <h1 class="display-2 text-dark fw-bold py-5">${
               callingCode !== "No Info"
                 ? callingCode
                 : '<span style="color:red;"></span>'

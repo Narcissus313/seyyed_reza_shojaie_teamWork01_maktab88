@@ -34,7 +34,6 @@ $(() => {
       );
     }
   }
-
   function getCountriesData() {
     $.ajax({
       url: "https://restcountries.com/v3.1/all",
@@ -49,7 +48,6 @@ $(() => {
       async: false,
     });
   }
-
   getCountriesData();
   countryDatas.sort((a, b) => a.name.common.localeCompare(b.name.common));
   setFormSelectMenu();
